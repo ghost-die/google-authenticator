@@ -25,7 +25,7 @@ if (!function_exists('google_create_secret')) {
 		
 		$secret = app('GoogleAuthenticator')->createSecret($secretLength);//创建一个Secret
 		
-		$config['authenticatorname'] = config('admin.extensions.google-authenticator.authenticatorname');
+		$config['authenticatorname'] =urlencode(config('admin.extensions.google-authenticator.authenticatorname')) ;
 		$qrCodeUrl="otpauth://totp/".$config['authenticatorname']."?secret=".$secret;//二维码中填充的内容
 		$googlesecret = array('secret' =>$secret ,'codeurl'=>$qrCodeUrl);
 		
