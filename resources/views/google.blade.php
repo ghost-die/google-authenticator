@@ -64,7 +64,7 @@
         $('.test').on('click',function (e) {
 
 			$.ajax({
-				url:"{{ empty(config('google.authenticatorurl')) ? route('admin.GoogleAuthenticator') : config('google.authenticatorurl') }}",
+				url:"{{ route('admin.GoogleAuthenticator')}}",
 				type:'post',
 				data:{_token:LA.token,google:$("input[name='google']").val(),onecode:$("input[name='onecode']").val()},
 				success:function (obj) {

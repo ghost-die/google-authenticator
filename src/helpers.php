@@ -9,7 +9,7 @@ if (!function_exists('google_check_code')) {
 	 */
     function google_check_code(string $secret,string $oneCode,int $discrepancy)
     {
-     
+//	    $google = new \Ghost\GoogleAuthenticator\Service\GoogleAuthenticatorService();
     	
 	    $checkResult = app('GoogleAuthenticator')->verifyCode($secret,$oneCode, $discrepancy);//对传入的参数进行校验
 	    if ($checkResult) return true;//校验成功
@@ -25,6 +25,7 @@ if (!function_exists('google_create_secret')) {
 	function google_create_secret($secretLength = 16)
 	{
 		
+//		$google = new \Ghost\GoogleAuthenticator\Service\GoogleAuthenticatorService();
 		$secret = app('GoogleAuthenticator')->createSecret($secretLength);//创建一个Secret
 		
 		$config['authenticatorname'] = config('admin.extensions.google-authenticator.authenticatorname');
