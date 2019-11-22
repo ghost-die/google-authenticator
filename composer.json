@@ -33,7 +33,7 @@
                 "Ghost\\GoogleAuthenticator\\GoogleAuthenticatorServiceProvider"
             ],
             "aliases": {
-                "GoogleAuthenticator": "Ghost\\GoogleAuthenticator\\Facades\\GoogleAuthenticatorService"
+                "GoogleAuthenticator": "Ghost\\GoogleAuthenticator\\Facades\\GoogleAuthenticator"
             }
         }
     }

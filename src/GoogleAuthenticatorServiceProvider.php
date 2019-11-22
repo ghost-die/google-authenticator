@@ -3,7 +3,7 @@
 namespace Ghost\GoogleAuthenticator;
 
 use Illuminate\Support\ServiceProvider;
-
+use Ghost\GoogleAuthenticator\Lib\GoogleAuthenticator as GoogleAuthenticatorLib;
 class GoogleAuthenticatorServiceProvider extends ServiceProvider
 {
     /**
@@ -44,11 +44,8 @@ class GoogleAuthenticatorServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		
-		
-		// Bind captcha
 		$this->app->bind('GoogleAuthenticator', function ($app) {
-			return new GoogleAuthenticatorService();
+			return new GoogleAuthenticatorLib();
 		});
 	}
 }

@@ -6,10 +6,10 @@ namespace Ghost\GoogleAuthenticator\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class GoogleAuthenticatorService extends Facade
+class GoogleAuthenticator extends Facade
 {
 	protected static function getFacadeAccessor()
 	{
-		return 'GoogleAuthenticatorService';
+		return 'GoogleAuthenticator';
 	}
 }
