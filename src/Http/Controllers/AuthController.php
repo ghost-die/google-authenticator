@@ -52,8 +52,17 @@ class AuthController extends BaseAuthController
 		
 		if ($is_open_google_auth){
 			
+			$onecode = (string) $request->get('onecode');
 			
-			if(!google_check_code($google,$request->get('onecode'),1)) {
+			
+			if (empty($onecode) && strlen($onecode) != 6)
+			{
+				$request->flash();
+				return back()->withErrors(['onecode'=>'Google 验证码错误']);
+			}
+			
+			
+			if(!google_check_code((string)$google,$onecode,1)) {
 				// 绑定场景：绑定成功，向数据库插入google参数，跳转到登录界面让用户登录
 				// 登录认证场景：认证成功，执行认证操作
 				$request->flash();
@@ -126,8 +135,8 @@ class AuthController extends BaseAuthController
 	
 	public function googlePost(Request $request)
 	{
-		
-		if (empty($request->onecode) && strlen($request->onecode) != 6)
+		$onecode = (string) $request->onecode;
+		if (empty($onecode) && strlen($onecode) != 6)
 		{
 			admin_toastr('请正确输入手机上google验证码 !','error');
 			return response()->json(['message' => '请正确输入手机上google验证码 !','status'=> FALSE,]);
@@ -137,7 +146,7 @@ class AuthController extends BaseAuthController
 		
 		
 		// 验证验证码和密钥是否相同
-		if(google_check_code($google,$request->onecode,1))
+		if(google_check_code((string)$google,$onecode,1))
 		{
 			$admi_user = auth('admin')->user();
 			$admi_user->google_auth = $google;
