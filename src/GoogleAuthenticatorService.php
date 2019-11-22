@@ -1,6 +1,6 @@
 <?php
 
-namespace Ghost\GoogleAuthenticator\Service;
+namespace Ghost\GoogleAuthenticator;
 
 /**
  * PHP Class for handling Google Authenticator 2-factor authentication
@@ -11,7 +11,7 @@ namespace Ghost\GoogleAuthenticator\Service;
  * @link http://www.phpgangsta.de/
  */
 
-class GoogleAuthenticator
+class GoogleAuthenticatorService
 {
 	protected $_codeLength = 6;
 	

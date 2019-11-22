@@ -10,6 +10,6 @@ class GoogleAuthenticator extends Facade
 {
 	protected static function getFacadeAccessor()
 	{
-		return 'GoogleAuthenticator';
+		return 'GoogleAuthenticatorService';
 	}
 }
