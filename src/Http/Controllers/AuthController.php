@@ -201,17 +201,4 @@ class AuthController extends BaseAuthController
 		
 		return $form;
 	}
-	
-	
-	protected function loginValidator(array $data)
-	{
-		return Validator::make($data, [
-			$this->username()   => 'required',
-			'password'          => 'required',
-			'captcha'          => 'required|captcha',
-		],[
-			'captcha.required' =>'验证码 不能为空。',
-			'captcha.captcha' =>'验证码 错误。'
-		]);
-	}
 }

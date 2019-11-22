@@ -59,21 +59,6 @@
                 <input type="password" class="form-control" placeholder="{{ trans('admin.password') }}" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="form-group has-feedback {!! !$errors->has('captcha') ?: 'has-error' !!}">
-
-                @if($errors->has('captcha'))
-                    @foreach($errors->get('captcha') as $message)
-                        <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{$message}}</label><br>
-                    @endforeach
-                @endif
-
-                <div style="height: 34px;">
-                    <input type="captcha" class="form-control" placeholder="验证码" name="captcha" style="width: 60%;float: left;">
-                    <img  src="{{captcha_src()}}" style="cursor: pointer;display: inline-block;float: right;height: 34px;" onclick="this.src='{{captcha_src()}}'+Math.random()">
-
-
-                </div>
-            </div>
 
             <div class="form-group has-feedback {!! !$errors->has('onecode') ?: 'has-error' !!}">
 
@@ -84,7 +69,6 @@
                 @endif
 
                 <input type="text" minlength="6" maxlength="6" class="form-control" placeholder="Google 动态验证码 未设置可不填" name="onecode">
-{{--                <span class="glyphicon glyphicon-lock form-control-feedback"></span>--}}
             </div>
 
             <div class="row">
