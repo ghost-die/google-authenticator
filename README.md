@@ -7,6 +7,7 @@ Google 两步登陆验证
 1. 动态验证，每30秒生产一个验证码，安全更加保障
 
 > composer require ghost/google-authenticator
+
 > php artisan migrate
 ```php
 'google-authenticator' => [
