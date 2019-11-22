@@ -23,7 +23,7 @@
 		<div class="form-group form-group-label">
 			<div class="text-center">
 				<div>
-					{!! QrCode::encoding('UTF-8')->size(200)->margin(1)->generate($createSecret["codeurl"]); !!}
+					{!! QrCode::encoding('UTF-8')->size(200)->margin(1)->errorCorrection('H')->generate($createSecret["codeurl"]); !!}
 				</div>
 				<h4 class="">
 					密钥：<span class="text-red">{{ $createSecret["secret"] }}</span>
