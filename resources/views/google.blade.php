@@ -34,7 +34,6 @@
 			<label class="floating-label" for="code">测试一下</label>
             <input type="hidden" name="google" value="{{ $createSecret['secret'] }}" />
             <input name="onecode" class="form-control"  type="text" placeholder="请输入扫描后手机显示的6位验证码" value="{{ old('onecode') }}" />
-{{--			<input type="text" id="code" placeholder="输入验证器生成的数字来测试" class="form-control maxwidth-edit">--}}
 		</div>
 	</div>
 	<div class="form-group text-center">

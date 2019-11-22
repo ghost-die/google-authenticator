@@ -63,8 +63,7 @@ class AuthController extends BaseAuthController
 			
 			
 			if(!google_check_code((string)$google,$onecode,1)) {
-				// 绑定场景：绑定成功，向数据库插入google参数，跳转到登录界面让用户登录
-				// 登录认证场景：认证成功，执行认证操作
+				
 				$request->flash();
 				return back()->withErrors(['onecode'=>'Google 验证码错误']);
 			}
