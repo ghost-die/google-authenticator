@@ -1,9 +1,9 @@
 {
     "name": "ghost/google-authenticator",
-    "description": "description...",
+    "description": "Google 两步验证码 ",
     "type": "library",
     "keywords": ["laravel-admin", "extension"],
-    "homepage": "https://github.com/ghost/google-authenticator",
+    "homepage": "https://github.com/Ghost-die/google-authenticator",
     "license": "MIT",
     "authors": [
         {
@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.3.0",
-        "encore/laravel-admin": "~1.6|1.7.8",
+        "encore/laravel-admin": "^1.6",
         "earnp/laravel-google-authenticator": "dev-master",
         "mews/captcha": "^3.0",
         "simplesoftwareio/simple-qrcode": "^2.0"
