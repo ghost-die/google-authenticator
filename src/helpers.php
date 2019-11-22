@@ -7,7 +7,7 @@ if (!function_exists('google_check_code')) {
 	 * @param int $discrepancy
 	 * @return bool
 	 */
-    function check_code(string $secret,string $oneCode,int $discrepancy)
+    function google_check_code(string $secret,string $oneCode,int $discrepancy)
     {
      
     	

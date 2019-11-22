@@ -2,7 +2,6 @@
 
 namespace Ghost\GoogleAuthenticator\Http\Controllers;
 
-use Earnp\GoogleAuthenticator\Facades\GoogleAuthenticator;
 use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -52,7 +51,9 @@ class AuthController extends BaseAuthController
 		$is_open_google_auth = $admin->value('is_open_google_auth');
 		
 		if ($is_open_google_auth){
-			if(!GoogleAuthenticator::CheckCode($google,$request->get('onecode'))) {
+			
+			
+			if(!google_check_code($google,$request->get('onecode'),1)) {
 				// 绑定场景：绑定成功，向数据库插入google参数，跳转到登录界面让用户登录
 				// 登录认证场景：认证成功，执行认证操作
 				$request->flash();
@@ -84,7 +85,7 @@ class AuthController extends BaseAuthController
 			
 		}else
 		{
-			$createSecret = GoogleAuthenticator::CreateSecret();
+			$createSecret = google_create_secret(32);
 		}
 		// 您自定义的参数，随表单返回
 		$box = new Box('Google 验证绑定',view($this->googleView, ['createSecret' => $createSecret]) );
@@ -136,7 +137,7 @@ class AuthController extends BaseAuthController
 		
 		
 		// 验证验证码和密钥是否相同
-		if(GoogleAuthenticator::CheckCode($google,$request->onecode))
+		if(google_check_code($google,$request->onecode,1))
 		{
 			$admi_user = auth('admin')->user();
 			$admi_user->google_auth = $google;
