@@ -36,4 +36,19 @@ class GoogleAuthenticatorServiceProvider extends ServiceProvider
             GoogleAuthenticator::routes(__DIR__.'/../routes/web.php');
         });
     }
+	
+	/**
+	 * Register the service provider.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		
+		
+		// Bind captcha
+		$this->app->bind('GoogleAuthenticator', function ($app) {
+			return new GoogleAuthenticatorService();
+		});
+	}
 }

@@ -1,7 +1,7 @@
 {
     "name": "ghost/google-authenticator",
     "description": "Google 两步验证码 ",
-    "type": "",
+    "type": "package",
     "keywords": ["laravel-admin", "extension"],
     "homepage": "https://github.com/Ghost-die/google-authenticator",
     "license": "MIT",
