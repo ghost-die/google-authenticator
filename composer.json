@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.3.0",
-        "encore/laravel-admin": "~1.6|1.7.8",
+        "encore/laravel-admin": "^1.6",
         "simplesoftwareio/simple-qrcode": "^2.0"
     },
     "require-dev": {
