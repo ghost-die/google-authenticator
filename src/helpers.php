@@ -18,12 +18,16 @@ if (!function_exists('google_check_code')) {
 if (!function_exists('google_create_secret')) {
 	/**
 	 * @param int $secretLength
+	 * @param string $secret
 	 * @return array
 	 */
-	function google_create_secret($secretLength = 16)
+	function google_create_secret(int $secretLength = 16,string $secret='')
 	{
+		if (''===$secret)
+		{
+			$secret = app('GoogleAuthenticator')->createSecret($secretLength);//创建一个Secret
+		}
 		
-		$secret = app('GoogleAuthenticator')->createSecret($secretLength);//创建一个Secret
 		
 		$config['authenticatorname'] =urlencode(config('admin.extensions.google-authenticator.authenticatorname')) ;
 		$qrCodeUrl="otpauth://totp/".$config['authenticatorname']."?secret=".$secret;//二维码中填充的内容

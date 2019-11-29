@@ -88,8 +88,9 @@ class AuthController extends BaseAuthController
 		if (auth('admin')->user()->google_auth){
 			
 			$secret = auth('admin')->user()->google_auth;
-			$qrCodeUrl="otpauth://totp/".config("google.authenticatorname")."?secret=".$secret;//二维码中填充的内容
-			$createSecret = ['secret' =>$secret ,'codeurl'=>$qrCodeUrl];
+//			$qrCodeUrl="otpauth://totp/".config("google.authenticatorname")."?secret=".$secret;//二维码中填充的内容
+//			$createSecret = ['secret' =>$secret ,'codeurl'=>$qrCodeUrl];
+			$createSecret = google_create_secret(32,$secret);
 			
 		}else
 		{
