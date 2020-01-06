@@ -1,6 +1,6 @@
 <?php
 
-use Ghost\GoogleAuthenticator\Http\Controllers\AuthController;
+use App\Admin\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 Route::get('auth/login', AuthController::class . '@getLogin');
 Route::post('auth/login', AuthController::class . '@postLogin');

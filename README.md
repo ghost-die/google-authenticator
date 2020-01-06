@@ -10,12 +10,17 @@ Google 两步登陆验证
 
 > php artisan migrate
 ```php
-'google-authenticator' => [
-		    'enable' => true,
-		    'authenticatorname' => '' //名称 
-
-	    ],
+'google-authenticator'=> [
+    'enable' => true,
+    'authenticatorname' => '' //名称 
+],
 ```
 
 
+```php
+namespace App\Admin\Controllers;
+
+use Ghost\GoogleAuthenticator\Http\Controllers\AuthController as BaseAuthController;
+
+```
 
