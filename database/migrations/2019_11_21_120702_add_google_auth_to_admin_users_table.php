@@ -27,7 +27,8 @@ class AddGoogleAuthToAdminUsersTable extends Migration
     public function down()
     {
         Schema::table('admin_users', function (Blueprint $table) {
-            //
+            $table->dropColumn( 'google_auth' );
+            $table->dropColumn( 'is_open_google_auth' );
         });
     }
 }
